@@ -33,9 +33,3 @@ Make sure you have the following software installed on your machine:
 ## Contribution
 
 If you encounter any issues, have suggestions, or want to contribute to the TOBD project, feel free to open an issue or submit a pull request. Your contribution is highly appreciated!
-
-## License
-
-This project is licensed under the [XYZ License](link_to_license).
-
-Enjoy using TOBD to manage your tasks, accounts, and diaries in a simple and organized way. I hope the project serves your studying goals and helps you land your first opportunity in the technology market. Have fun exploring the code!

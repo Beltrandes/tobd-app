@@ -1,4 +1,3 @@
-You are absolutely right! Since the person viewing the project will already be on GitHub, there's no need to include the contact GitHub information in the README. Below is the revised README without the contact GitHub information:
 
 # TOBD - Web Application for Task, Account, and Diary Management
 

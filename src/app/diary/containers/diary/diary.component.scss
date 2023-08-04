@@ -1,0 +1,9 @@
+.diarys-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 2em auto;
+  @media (max-width: 600px) {
+    width: 95%;
+  }
+}

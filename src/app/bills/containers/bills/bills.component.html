@@ -1,0 +1,20 @@
+<div class="bills-container">
+  <app-bills-list
+    *ngIf="bills$ | async as bills; else loading"
+    [bills]="bills"
+    (add)="onAdd()"
+    (edit)="onEdit($event)"
+    (pay)="onPayment($event)"
+    (remove)="onRemove($event)"
+    [openBillsCount]="openBillsCount"
+    [lateBillsCount]="lateBillsCount"
+    [paidBillsCount]="paidBillsCount"
+    [balance]="balance"
+  ></app-bills-list>
+
+  <ng-template #loading>
+    <div class="loading-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

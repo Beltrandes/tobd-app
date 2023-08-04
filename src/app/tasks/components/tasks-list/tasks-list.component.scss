@@ -1,0 +1,42 @@
+@import "/src/app/variables";
+
+mat-card {
+  width: 100%;
+  margin: 1em auto;
+  background-color: $variant2;
+}
+
+mat-toolbar {
+  width: 100%;
+  margin: 1em auto;
+  border-radius: 4px;
+  justify-content: space-between;
+  font-weight: 500;
+  color: $variant2;
+  background: linear-gradient(45deg, rgb(81, 81, 255), rgb(255, 53, 53));
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  span {
+    font-size: larger;
+  }
+}
+
+mat-card-subtitle {
+  display: flex;
+  align-items: center;
+  mat-icon {
+    margin-left: 0.2em;
+    color: rgb(81, 81, 255);
+  }
+}
+
+mat-card-actions {
+  button {
+    margin-right: 0.5em;
+    font-weight: 500;
+  }
+  .edit {
+    color: rgb(255, 53, 53);
+    border-color: rgb(255, 53, 53);
+  }
+}

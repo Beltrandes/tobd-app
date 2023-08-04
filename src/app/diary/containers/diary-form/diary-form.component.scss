@@ -1,0 +1,22 @@
+@import '/src/app/variables';
+
+mat-card {
+  width: 80%;
+  margin: 2em auto;
+  display: flex;
+  background-color: $variant2;
+  form {
+    padding-top: 1em;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  mat-card-actions {
+    justify-content: center;
+    button {
+        font-weight: 600;
+        margin-left: 1em;
+    }
+    margin-bottom: 1.5em;
+}
+}

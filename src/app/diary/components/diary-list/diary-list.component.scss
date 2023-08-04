@@ -1,0 +1,108 @@
+@import "/src/app/variables";
+
+mat-toolbar {
+  justify-content: space-between;
+  margin: 1em auto;
+  border-radius: 5px;
+  background: linear-gradient(45deg, rgb(81, 81, 255), rgb(255, 53, 53));
+  font-weight: 500;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  span {
+    font-size: larger;
+    color: $variant2;
+  }
+}
+.diarys-container {
+  width: 100%;
+  background-color: $variant2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1em;
+  margin-bottom: 2em;
+  mat-card {
+    width: 45%;
+    margin-bottom: 1em;
+    height: 450px;
+
+    @media (max-width: 720px) {
+      width: 100%;
+    }
+    mat-card-content {
+      overflow-y: scroll;
+      height: 70%;
+      max-width: 100%;
+      word-wrap: break-word;
+      &::-webkit-scrollbar {
+        background-color: transparent;
+      }
+    }
+    mat-card-actions {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      margin-bottom: 1em;
+
+      justify-content: space-evenly;
+    }
+    mat-card-header {
+      background: linear-gradient(45deg, rgb(81, 81, 255), rgb(255, 53, 53));
+      padding: 0.5em;
+      margin-bottom: 1em;
+      display: flex;
+      height: 20%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      align-items: center;
+      justify-content: space-evenly;
+      .diary-infos {
+        width: 85%;
+        flex: 1;
+        overflow: hidden;
+        white-space: normal;
+        word-wrap: break-word;
+        mat-card-title {
+          color: white;
+          margin-bottom: 0.2em;
+          width: 100%;
+          display: flex;
+          word-wrap: break-word;
+          font-size: 120%;
+        }
+        mat-card-subtitle {
+          background-color: $variant2;
+          text-align: center;
+          color: $primary;
+          font-weight: 500;
+          min-width: 70%;
+        }
+      }
+      mat-icon {
+        color: $variant2;
+        padding: 0.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5em;
+        margin-left: .2em;
+      }
+    }
+  }
+}
+.marked {
+  background-color: $variant2;
+  border: 2px solid $primary;
+  color: $primary;
+}
+
+.empty {
+  padding: 2em;
+  background-color: $variant2;
+  text-align: center;
+  span {
+    font-size: larger;
+  }
+}
+
+

@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-toolbar color="accent">Adicione um Diary</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <input formControlName="description" matInput type="text" #description>
+        <mat-hint align="end">{{ description.value.length || 0 }}/50</mat-hint>
+        <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>O que aconteceu hoje?</mat-label>
+        <textarea formControlName="text" matInput rows="12" #text></textarea>
+        <mat-hint align="end">{{ text.value.length || 0 }}/1000</mat-hint>
+        <mat-error *ngIf="form.get('text')?.invalid">{{getErrorMessage('text')}}</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()"><mat-icon>save</mat-icon> Salvar</button>
+    <button mat-stroked-button color="accent" (click)="onCancel()"><mat-icon>close</mat-icon> Cancelar</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,51 @@
+<mat-toolbar>
+  <span>Here are your Diarys.</span>
+  <button mat-fab color="primary" (click)="onAdd()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-card *ngIf="diarys.length == 0" class="empty"><span>You don't have any Diary, try to add one!</span></mat-card>
+<mat-card *ngIf="diarys.length !== 0" class="diarys-container">
+  <mat-card *ngFor="let diary of diarys">
+    <mat-card-header>
+      <div class="diary-infos">
+        <mat-card-title>{{ diary.description }}</mat-card-title>
+        <mat-card-subtitle
+          >{{ diary.date | date : "medium" }}
+        </mat-card-subtitle>
+      </div>
+
+      <mat-icon *ngIf="diary.status !== 'Unmarked'">bookmark</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      {{ diary.text }}
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button
+        (click)="onEdit(diary)"
+        matTooltip="Edit Diary"
+        mat-mini-fab
+        color="primary"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        (click)="onRemove(diary)"
+        matTooltip="Delete Diary"
+        mat-mini-fab
+        color="warn"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        [ngClass]="{ marked: diary.status !== 'Unmarked' }"
+        (click)="onMark(diary)"
+        matTooltip="{{ getTooltipText(diary.status) }} Diary"
+        color="accent"
+        mat-mini-fab
+      >
+        <mat-icon>bookmark</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</mat-card>

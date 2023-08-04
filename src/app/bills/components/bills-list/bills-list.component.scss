@@ -1,0 +1,141 @@
+@import '/src/app/variables';
+
+mat-toolbar {
+  width: 100%;
+  margin: 1em auto;
+  border-radius: 4px;
+  justify-content: space-between;
+  font-weight: 500;
+  color: $variant2;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  span {
+    font-size: larger;
+  }
+}
+
+.toolbar {
+  background: linear-gradient(45deg, rgb(81, 81, 255), rgb(255, 53, 53));
+}
+
+mat-table {
+  background-color: $variant2;
+  margin-bottom: 2em;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  @media screen and (max-width:1100px) {
+    font-size: .9em;
+  }
+  mat-header-cell {
+    color: $primary;
+    font-weight: 500;
+  }
+
+}
+
+.status {
+  display: flex;
+  height: 55px;
+  align-items: center;
+  mat-icon {
+    margin-left: .2em;
+    font-size: 1.5em;
+  }
+}
+
+
+
+.pending-status {
+  color: darkgoldenrod;
+  font-weight: 500;
+  height: 100%;
+}
+
+.paid-status {
+  color: green;
+  font-weight: 500;
+  height: 60px;
+
+}
+
+.late-status {
+  color: red;
+  font-weight: 500;
+
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.infos {
+  background-color: $variant2;
+  span {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    mat-icon {
+      margin-right: .2em;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  /*  Enable this to hide header
+  .mat-table .mat-header-cell {
+
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  */
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+  /*
+  .mat-table .mat-row:nth-child(even) {background: #CCC}
+  .mat-table .mat-row:nth-child(odd) {background: #FFF}
+  */
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height:30px;
+    margin-bottom: 4%;
+  }
+  .mat-table .mat-cell:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+    .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}
+
+

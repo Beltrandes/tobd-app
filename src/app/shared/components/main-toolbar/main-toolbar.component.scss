@@ -1,0 +1,34 @@
+@import "/src/app/variables";
+
+.main-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .buttons {
+    width: 40%;
+    justify-content: space-around;
+    display: flex;
+  }
+
+  mat-icon {
+    font-size: 2.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+span {
+  font-size: 2.2em;
+  margin-top: 0.2em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: rgb(255, 53, 53);
+}
+p {
+  color: rgb(81, 81, 255);
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-top: -0.4em;
+}

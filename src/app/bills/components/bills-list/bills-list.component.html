@@ -1,0 +1,114 @@
+<mat-toolbar class="toolbar">
+  <span>Here are your Bills.</span>
+
+  <button mat-fab color="primary" (click)="onAdd()" aria-label="add task">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-card class="empty" *ngIf="bills.length == 0"><span>You don't have any Bill, try to add one!</span></mat-card>
+<mat-toolbar *ngIf="bills.length !== 0" class="infos">
+  <span class="late-status"
+    ><mat-icon>error</mat-icon> {{ lateBillsCount }}</span
+  >
+  <span class="paid-status"
+    ><mat-icon>paid</mat-icon> {{ paidBillsCount }}</span
+  >
+  <span class="pending-status"
+    ><mat-icon>pending</mat-icon> {{ openBillsCount }}</span
+  >
+  <span *ngIf="balance !== 0" [ngClass]="{ 'late-status': balance !== 0 }">{{
+    balance | currency : "BRL"
+  }}</span>
+  <span class="paid-status" *ngIf="balance == 0">It's all paid!</span>
+</mat-toolbar>
+<mat-table *ngIf="bills.length !== 0" [dataSource]="bills">
+  <ng-container class="ng-container" matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+    <mat-cell *matCellDef="let bill">{{ bill.description }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+    <mat-cell *matCellDef="let bill">
+      <span
+        class="status"
+        [ngClass]="{
+          'pending-status': bill.status === 'Pending',
+          'paid-status': bill.status === 'Paid',
+          'late-status': bill.status === 'Late'
+        }"
+        >{{ bill.amount | currency : "BRL" }}</span
+      >
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dueDate">
+    <mat-header-cell *matHeaderCellDef>Due Date</mat-header-cell>
+    <mat-cell *matCellDef="let bill">
+      {{ bill.dueDate | date : "shortDate" }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let bill">{{ bill.category }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let bill">
+      <span
+        class="status"
+        [ngClass]="{
+          'pending-status': bill.status === 'Pending',
+          'paid-status': bill.status === 'Paid',
+          'late-status': bill.status === 'Late'
+        }"
+        >{{ bill.status }}
+        <mat-icon
+          aria-hidden="false"
+          aria-label="task category"
+          fontIcon="{{ bill.status | status }}"
+        ></mat-icon
+      ></span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell style="text-align: center" *matHeaderCellDef>
+      Actions
+    </mat-header-cell>
+    <mat-cell style="text-align: center" mat-cell *matCellDef="let bill">
+      <button
+        matTooltip="Edit Bill"
+        mat-icon-button
+        color="primary"
+        aria-label="Edit Bill"
+        (click)="onEdit(bill)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        matTooltip="Delete Bill"
+        mat-icon-button
+        color="warn"
+        aria-label="Delete Bill"
+        (click)="onDelete(bill)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        matTooltip="Pay Bill"
+        mat-icon-button
+        color="accent"
+        aria-label="Pay Bill"
+        (click)="onPayment(bill)"
+      >
+        <mat-icon>paid</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

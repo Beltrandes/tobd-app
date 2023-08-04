@@ -1,0 +1,16 @@
+@import '/src/app/variables';
+
+mat-toolbar {
+  position: relative;
+}
+
+.app-container {
+  height: 100%;
+  mat-drawer {
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $primary;
+  }
+}

@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <span>Here are your Tasks.</span>
+    <button (click)="onAdd()" mat-fab color="primary" aria-label="add task">
+        <mat-icon>add</mat-icon>
+      </button>
+</mat-toolbar>
+<mat-card *ngIf="tasks.length == 0" class="empty"><span>You don't have any Task, try to add one!</span></mat-card>
+<mat-card *ngFor="let task of tasks">
+  <mat-card-header>
+    <mat-card-title>{{ task.description }}</mat-card-title>
+    <mat-card-subtitle>
+        {{ task.category }}
+        <mat-icon aria-hidden="false" aria-label="task category" fontIcon="{{ task.category | category}}"></mat-icon>
+
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onDelete(task)">
+        Done
+        <mat-icon aria-hidden="false" aria-label="task category" fontIcon="done"></mat-icon>
+    </button>
+    <button mat-stroked-button class="edit" (click)="onEdit(task)">
+        Edit
+        <mat-icon aria-hidden="false" aria-label="task category" fontIcon="edit"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

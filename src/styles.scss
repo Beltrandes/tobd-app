@@ -1,0 +1,53 @@
+@use "@angular/material" as mat;
+
+@import '/src/app/variables';
+
+@include mat.core();
+
+$tobd-primary: mat.define-palette(mat.$purple-palette);
+$tobd-accent: mat.define-palette(mat.$deep-purple-palette, A200, A100, A400);
+
+$tobd-warn: mat.define-palette(mat.$red-palette);
+
+$tobd-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $tobd-primary,
+      accent: $tobd-accent,
+      warn: $tobd-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($tobd-theme);
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(252, 233, 249);
+}
+
+.loading-spinner {
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  margin-top: 1.5em;
+}
+
+.empty {
+  padding: 2em;
+  background-color: $variant2;
+  text-align: center;
+  span {
+    font-size: larger;
+    font-weight: 500;
+  }
+}
+

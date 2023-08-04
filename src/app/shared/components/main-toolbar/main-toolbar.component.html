@@ -1,0 +1,43 @@
+<div class="main-buttons">
+  <span>TOBD</span>
+  <p>Your tasks, bills and diarys, one place.</p>
+  <div class="buttons">
+
+    <button
+      mat-fab
+      color="primary"
+      aria-label="to tasks"
+      (click)="navigate('tasks')"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="task category"
+        fontIcon="checklist"
+      ></mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="primary"
+      aria-label="to bills"
+      (click)="navigate('bills')"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="task category"
+        fontIcon="monetization_on"
+      ></mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="primary"
+      aria-label="to diary"
+      (click)="navigate('diary')"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="task category"
+        fontIcon="library_books"
+      ></mat-icon>
+    </button>
+  </div>
+</div>
